@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter,Route} from 'react-router-dom'
+import Home from './Components/Home';
+import PersonList from './Components/PersonList';
+import Menu from './Components/Menu';
+import Weather from './Components/Weather ';
+import PostList from './Components/PostList';
+import Slider from './Components/Slider';
+import MainPagePost from './Components/MainPagePost';
+import PostDetail from './Components/PostDetail';
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
-class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      
+        <BrowserRouter>
+        <div>
+        <Route exact path="/" component={Home}/>
+        <Route path="/User/MainPagePost/:id" component={MainPagePost}/>
+        <Route path="/User/PostDetailPage/:id" component={PostDetail}/>
+        </div>
+        </BrowserRouter>
+
+
+      
+
     );
   }
 }
-
-export default App;
